@@ -13,7 +13,7 @@ sonarqube   -   nproc    409
 EOT
 
 sudo apt-get update -y
-sudo apt-get install openjdk-11-jdk -y
+sudo apt-get install openjdk-17-jdk -y
 sudo update-alternatives --config java
 
 java -version
@@ -112,6 +112,8 @@ EOT
 ln -s /etc/nginx/sites-available/sonarqube /etc/nginx/sites-enabled/sonarqube
 systemctl enable nginx.service
 #systemctl restart nginx.service
+sudo apt install ufw -y
+sudo apt install firewalld -y
 sudo ufw allow 80,9000,9001/tcp
 
 echo "System reboot in 30 sec"
